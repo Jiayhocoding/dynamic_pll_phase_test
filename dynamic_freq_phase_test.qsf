@@ -1,0 +1,58 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2025  Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus Prime License Agreement,
+# the Altera IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Altera and sold by Altera or its authorized distributors.  Please
+# refer to the Altera Software License Subscription Agreements 
+# on the Quartus Prime software download page.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 25.1.1 Build 125 07/31/2025 SC Pro Edition
+# Date created = 13:15:35  July 21, 2026
+#
+# -------------------------------------------------------------------------- #
+set_global_assignment -name TOP_LEVEL_ENTITY variable_frequency_dpwm_test
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 25.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:15:35  JULY 21, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1.1 Pro Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name DEVICE A5ED013BB32AE4SCS
+set_global_assignment -name FAMILY "Agilex 5"
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name SYSTEMVERILOG_FILE variable_frequency_dpwm_test.sv
+set_global_assignment -name PWRMGT_VOLTAGE_OUTPUT_FORMAT "LINEAR FORMAT"
+set_global_assignment -name PWRMGT_LINEAR_FORMAT_N "-12"
+set_global_assignment -name IP_FILE pll_4phase.ip
+set_global_assignment -name BOARD default
+set_location_assignment PIN_D8 -to CLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to CLOCK_50 -entity variable_frequency_dpwm_test
+set_location_assignment PIN_CC71 -to LEDR0
+set_location_assignment PIN_BH78 -to LEDR1
+set_location_assignment PIN_CH69 -to LEDR2
+set_instance_assignment -name IO_STANDARD "1.2-V" -to LEDR0 -entity variable_frequency_dpwm_test
+set_instance_assignment -name IO_STANDARD "1.2-V" -to LEDR1 -entity variable_frequency_dpwm_test
+set_instance_assignment -name IO_STANDARD "1.2-V" -to LEDR2 -entity variable_frequency_dpwm_test
+set_location_assignment PIN_BK31 -to GPIO[0]
+set_location_assignment PIN_BE43 -to GPIO[1]
+set_location_assignment PIN_BF29 -to GPIO[2]
+set_location_assignment PIN_BF40 -to GPIO[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to GPIO[0] -entity variable_frequency_dpwm_test
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to GPIO[1] -entity variable_frequency_dpwm_test
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to GPIO[2] -entity variable_frequency_dpwm_test
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to GPIO[3] -entity variable_frequency_dpwm_test
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_location_assignment PIN_BK28 -to GPIO[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to GPIO[4] -entity variable_frequency_dpwm_test

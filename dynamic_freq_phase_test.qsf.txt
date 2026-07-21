@@ -1,0 +1,72 @@
+# ============================================================
+# dynamic_freq_phase_test.qsf
+# Board     : DE25-Standard Rev.D
+# FPGA      : A5ED013BB32AE4SCS
+# Top level : variable_frequency_dpwm_test
+# ============================================================
+
+
+# ============================================================
+# Device
+# ============================================================
+
+set_global_assignment -name FAMILY "Agilex 5"
+set_global_assignment -name DEVICE A5ED013BB32AE4SCS
+
+set_global_assignment -name TOP_LEVEL_ENTITY variable_frequency_dpwm_test
+
+# Force compilation products into output_files
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+
+
+# ============================================================
+# Design files
+# ============================================================
+
+set_global_assignment -name SYSTEMVERILOG_FILE variable_frequency_dpwm_test.sv
+set_global_assignment -name IP_FILE pll_4phase.ip
+set_global_assignment -name SDC_FILE dynamic_freq_phase_test.sdc
+
+
+# ============================================================
+# 50 MHz reference clock
+# ============================================================
+
+set_location_assignment PIN_D8 -to CLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to CLOCK_50
+
+
+# ============================================================
+# Red LEDs
+#
+# DE25-Standard LEDs use 1.2-V I/O.
+# Your SystemVerilog code already treats them as active-low.
+# ============================================================
+
+set_location_assignment PIN_CC71 -to LEDR0
+set_location_assignment PIN_BH78 -to LEDR1
+set_location_assignment PIN_CH69 -to LEDR2
+
+set_instance_assignment -name IO_STANDARD "1.2-V" -to LEDR0
+set_instance_assignment -name IO_STANDARD "1.2-V" -to LEDR1
+set_instance_assignment -name IO_STANDARD "1.2-V" -to LEDR2
+
+# ============================================================
+# GPIO[0] = DPWM output
+# GPIO[1] = PLL clock 0°
+# GPIO[2] = PLL clock 90°
+# GPIO[3] = PLL clock 180°
+# GPIO[4] = PLL clock 270°
+# ============================================================
+
+set_location_assignment PIN_BK31 -to {GPIO[0]}
+set_location_assignment PIN_BE43 -to {GPIO[1]}
+set_location_assignment PIN_BF29 -to {GPIO[2]}
+set_location_assignment PIN_BF40 -to {GPIO[3]}
+set_location_assignment PIN_BK28 -to {GPIO[4]}
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {GPIO[0]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {GPIO[1]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {GPIO[2]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {GPIO[3]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {GPIO[4]}
